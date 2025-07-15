@@ -1,0 +1,527 @@
+/* === BASE STYLING === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #0d001a;
+    color: #fdfdfd;
+    transition: all 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* === NAVIGATION === */
+nav {
+    background: linear-gradient(90deg, #8e2de2, #da22ff);
+    box-shadow: 0 0 12px #da22ff90;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease, border-bottom 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links li a.active {
+    color: #ff8bc1;
+    text-shadow: 0 0 6px #fc54a2;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  bottom: -4px;
+  left: 0;
+  background: #fff;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+/* === MODE TOGGLE + HAMBURGER === */
+#mode-toggle {
+    background: #8e2de2;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+#mode-toggle:hover {
+    background: #fff;
+    color: #000;
+}
+
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 36px;
+    height: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    z-index: 1001;
+    box-shadow: none;
+}
+
+#hamburger .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Animate into perfect X */
+#hamburger.open .top {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+#hamburger.open .middle {
+    opacity: 0;
+}
+
+#hamburger.open .bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* === HERO SECTION === */
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: radial-gradient(circle at top, #280040, #0d001a);
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* === SECTION STYLING === */
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    background: linear-gradient(90deg, #8e2de2, #da22ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* === TABLE STYLING === */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: #1a002e;
+    color: #fff;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #8e2de2;
+    text-align: left;
+}
+
+th {
+    background-color: #280040;
+    font-weight: bold;
+}
+
+td ul {
+    list-style-position: outside;
+    padding-left: 1.2rem;
+    /* Adjust for bullet alignment */
+    margin: 0;
+}
+
+td li {
+    padding-left: 0.2rem;
+    margin-bottom: 4px;
+    text-indent: -0.1rem;
+    /* Optional: tighter alignment if needed */
+}
+
+/* === EXPERIENCE / EDUCATION === */
+ul.card-list {
+    list-style: none;
+    padding: 0;
+}
+
+.card-item {
+    background: #1f0a33;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #da22ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #8e2de280;
+}
+
+.card-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* === PROJECT CARDS === */
+.card-grid {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+    background: #1a002e;
+    border: 1px solid #f472b6;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 0 10px #f472b660;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #f472b6cc;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
+/* === FORMS === */
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    background-color: #29003f;
+    color: #fff;
+    resize: vertical;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* === PLACEHOLDER COLOR === */
+::placeholder {
+    color: #ddd;
+    opacity: 1;
+    /* Ensures color is applied */
+}
+
+.light-mode ::placeholder {
+    color: #333;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid white;
+}
+
+textarea {
+    max-height: 200px;
+}
+
+::placeholder {
+    color: #ddd;
+    font-family: 'Roboto', sans-serif;
+    /* ✅ Enforce matching font */
+    font-size: 1rem;
+    opacity: 1;
+}
+
+.light-mode ::placeholder {
+    color: #333;
+}
+
+/* === BUTTONS === */
+.btn,
+button {
+    background: linear-gradient(135deg, #f472b6, #da22ff);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.btn:hover,
+button:hover {
+    box-shadow: 0 0 12px #da22ffcc;
+}
+
+/* === FOOTER === */
+footer {
+    background: #18002c;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+footer a {
+    color: #f472b6;
+    text-decoration: none;
+}
+
+/* === BACK TO TOP === */
+#backToTop {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #f472b6, #da22ff);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px #da22ff80;
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: scale(1.1);
+    background: #c026d3;
+    color: #fff;
+}
+
+/* === REVEAL EFFECT === */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === LIGHT MODE === */
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.light-mode nav {
+    background: radial-gradient(circle at top, #280040, #0d001a);
+}
+
+.light-mode .nav-links li a.active {
+  color: #f472b6;
+}
+
+.light-mode .hero {
+    background: linear-gradient(90deg, #d4b0ff, #fdd5ff);
+    color: #000;
+}
+
+.light-mode h2 {
+    background: linear-gradient(90deg, #8e2de2, #da22ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.light-mode .card {
+    background: #f9f9f9;
+    color: #000;
+    border: 1px solid #c084fc;
+}
+
+.light-mode input,
+.light-mode textarea {
+    background-color: #eee;
+    color: #000;
+}
+
+.light-mode input:focus,
+.light-mode textarea:focus {
+    outline: 2px solid #8e2de2;
+}
+
+.light-mode .card-item {
+    background: #f3f3f3;
+    border-left: 4px solid #c084fc;
+    color: #000;
+}
+
+.light-mode footer {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.light-mode table {
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+.light-mode th {
+    background-color: #ded0f5;
+}
+
+.light-mode td {
+    border: 1px solid #c084fc;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #hamburger {
+        display: flex !important;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 220px;
+        height: 100vh;
+        background: #1a002e;
+        padding: 80px 20px;
+        gap: 1rem;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.1rem;
+        padding: 10px 0;
+        color: #fff;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn,
+    button {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+    }
+
+    footer {
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        order: 1;
+    }
+
+    .nav-actions {
+        order: 2;
+    }
+}
